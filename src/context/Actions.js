@@ -1,0 +1,7 @@
+export const ACTION_TYPES = {
+  SET_TASKS: "SET_TASKS",
+  ADD: "ADD",
+  EDIT: "EDIT",
+  REMOVE: "REMOVE",
+  COMPLETE: "COMPLETE",
+}
