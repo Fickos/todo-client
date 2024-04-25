@@ -1,15 +1,165 @@
+.todo-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.home {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  align-self: center;
+  text-align: center;
+  display: flex;
+  gap: 0.5em;
+}
+
 .states {
   display: flex;
   justify-content: space-evenly;
   border-radius: 8px;
   box-shadow: 5px 5px 5px rgba(0,0,0, 0.25);
+  border: 1px solid white;
 }
 
 .state-tab {
-  height: 2em;
+  padding: 1em;
+  width: 10em;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+}
+
+.add-row {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
+.add-row:hover {
+  text-decoration: underline;
+}
+
+.add-row > img {
+  height: 2em;
+  width: 2em;
+}
+
 .state-tab.active {
-  border-bottom: 1px solid white;
+  background-color: #343434;
+  border-radius: 8px;
+}
+
+.vertical-flex {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.todo-card {
+  position: relative;
+  background-color: white;
+  color: black;
+  padding: 1.5em;
+  max-width: 40em;
+  border-radius: 8px;
+  border: 1px solid white;
+  display: flex;
+  gap: 1em;
+}
+
+.todo-card:hover {
+  border: 1px solid #535bf2;
+}
+
+.todo-card.move-right {
+  animation: fade-right 2s;
+  opacity: 0;
+}
+
+.todo-card.move-left {
+  animation: fade-left 2s;
+  opacity: 0;
+}
+
+.todo-card.delete {
+  animation: fade-down-red 1s;
+  opacity: 0;
+}
+
+.todo-content {
+  flex: 1;
+}
+
+.action-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.action-icons > img {
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+}
+
+.modal-content {
+  text-align: center;
+  background-color: #121212;
+}
+
+@media only screen and (max-width: 600px) {
+  .todo-page {
+    padding: 0.5em;
+  }
+  .todo-page > h1 {
+    font-size: 2.25rem;
+  }
+  .todo-page > .states {
+    width: 100%;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+
+  100% {
+    opacity: 0;
+    left: 40em;
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+
+  100% {
+    opacity: 0;
+    left: -40em;
+  }
+}
+
+@keyframes fade-down-red {
+  0% {
+    opacity: 1;
+    background-color: white;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    background-color: #ed4337;
+    top: 20em;
+  }
 }

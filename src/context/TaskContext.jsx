@@ -24,7 +24,7 @@ function taskReducer(tasks, action) {
     }
     case ACTION_TYPES.EDIT: {
       return tasks.map((el) => {
-        if (el.id === action.payload.id) {
+        if (el.TaskID === action.payload.TaskID) {
           return action.payload
         } else {
           return el;
@@ -32,13 +32,13 @@ function taskReducer(tasks, action) {
       });
     }
     case ACTION_TYPES.REMOVE: {
-      return tasks.filter((el) => el.id !== action.payload);
+      return tasks.filter((el) => el.TaskID !== action.payload);
     }
     case ACTION_TYPES.COMPLETE: {
-      const { id, state } = action.payload;
+      const { TaskID, State } = action.payload;
       return tasks.map((el) => {
-          if (el.id === id) {
-              return { ...el, state };
+          if (el.TaskID === TaskID) {
+              return { ...el, State };
           } else {
               return el;
           }
@@ -52,10 +52,5 @@ function taskReducer(tasks, action) {
   }
 }
 
-const initialTasks = [
-  { id: 1, content: "Take out the trash", state: "TO_DO", location: "Wien, Austria", createdAt: new Date().toISOString() },
-  { id: 2, content: "Make dinner", state: "TO_DO", location: "Wien, Austria", createdAt: new Date().toISOString() },
-  { id: 3, content: "Water the grass", state: "COMPLETED", location: "Wien, Austria", createdAt: new Date().toISOString() },
-  { id: 4, content: "Wash the dog", state: "COMPLETED", location: "Wien, Austria", createdAt: new Date().toISOString() },
-];
+const initialTasks = [];
 
